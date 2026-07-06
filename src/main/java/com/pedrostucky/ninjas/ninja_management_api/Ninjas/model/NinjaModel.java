@@ -1,6 +1,6 @@
-package com.pedrostucky.ninjas.ninja_management_api.Ninjas;
+package com.pedrostucky.ninjas.ninja_management_api.Ninjas.model;
 
-import com.pedrostucky.ninjas.ninja_management_api.Missoes.MissoesModel;
+import com.pedrostucky.ninjas.ninja_management_api.Missoes.model.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
 

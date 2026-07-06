@@ -1,4 +1,4 @@
-package com.pedrostucky.ninjas.ninja_management_api.Ninjas;
+package com.pedrostucky.ninjas.ninja_management_api.Ninjas.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
