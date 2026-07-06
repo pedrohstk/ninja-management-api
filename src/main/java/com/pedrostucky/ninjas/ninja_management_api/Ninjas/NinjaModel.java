@@ -1,10 +1,9 @@
-package com.pedrostucky.ninjas.ninja_management_api;
+package com.pedrostucky.ninjas.ninja_management_api.Ninjas;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.pedrostucky.ninjas.ninja_management_api.Missoes.MissoesModel;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro_ninja")
@@ -16,6 +15,10 @@ public class NinjaModel {
     private String rank;
     private int idade;
 
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
+
     public NinjaModel() {
     }
 
@@ -23,6 +26,11 @@ public class NinjaModel {
         this.nome = nome;
         this.rank = rank;
         this.idade = idade;
+    }
+
+    public NinjaModel(String nome, String rank, int idade, MissoesModel missoes) {
+       this(nome, rank, idade);
+        this.missoes = missoes;
     }
 
     public String getNome() {
