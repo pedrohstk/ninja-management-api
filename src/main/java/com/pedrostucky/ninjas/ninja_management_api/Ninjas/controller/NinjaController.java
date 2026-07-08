@@ -2,6 +2,8 @@ package com.pedrostucky.ninjas.ninja_management_api.Ninjas.controller;
 
 import com.pedrostucky.ninjas.ninja_management_api.Ninjas.model.NinjaModel;
 import com.pedrostucky.ninjas.ninja_management_api.Ninjas.service.NinjaService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +43,5 @@ public class NinjaController {
 
     //Deletar Ninja (DELETE)
     @DeleteMapping("/delete/{id}")
-    public String deleteNinja() {
-        return "Deletar ninja";
-    }
+    public void deleteNinja(@PathVariable Long id) { ninjaService.deleteNinja(id); }
 }
