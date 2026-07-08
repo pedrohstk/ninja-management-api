@@ -1,31 +1,41 @@
 package com.pedrostucky.ninjas.ninja_management_api.Missoes.controller;
 
+import com.pedrostucky.ninjas.ninja_management_api.Missoes.model.MissoesModel;
+import com.pedrostucky.ninjas.ninja_management_api.Missoes.service.MissoesService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping
+@RequestMapping("/api/v1/missoes")
 public class MissoesController {
-    @PostMapping("/api/v1/missoes/create")
-    public String createMissao() {
-        return "Criar missão";
+    private final MissoesService missoesService;
+
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
     }
 
-    @GetMapping("/api/v1/missoes/all")
-    public String findAllMissoes() {
-        return "Todas as missões";
+    @PostMapping("/create")
+    public MissoesModel createMissao(@RequestBody MissoesModel missoesModel) {
+        return missoesService.createMissao(missoesModel);
     }
 
-    @GetMapping("/api/v1/missoes/{id}")
+    @GetMapping("/find")
+    public List<MissoesModel> findAllMissoes() {
+        return missoesService.findAllMissoes();
+    }
+
+    @GetMapping("/find/{id}")
     public String findMissaoById() {
         return "Missao por ID";
     }
 
-    @PutMapping("/api/v1/missoes/update/{id}")
+    @PutMapping("/update/{id}")
     public String updateMissao() {
         return "Alterar missao";
     }
 
-    @DeleteMapping("/api/v1/missoes/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteMissao() {
         return "Deletar missao";
     }
