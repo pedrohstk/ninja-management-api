@@ -2,8 +2,6 @@ package com.pedrostucky.ninjas.ninja_management_api.Ninjas.controller;
 
 import com.pedrostucky.ninjas.ninja_management_api.Ninjas.model.NinjaModel;
 import com.pedrostucky.ninjas.ninja_management_api.Ninjas.service.NinjaService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,8 +35,8 @@ public class NinjaController {
 
     // Alterar dados dos Ninjas (UPDATE)
     @PutMapping("/update/{id}")
-    public String updateNinja() {
-        return "Alterar ninja";
+    public NinjaModel updateNinja(@PathVariable Long id, @RequestBody NinjaModel ninjaModel) {
+        return ninjaService.updateNinja(id, ninjaModel);
     }
 
     //Deletar Ninja (DELETE)
